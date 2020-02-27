@@ -12,7 +12,7 @@
 	<artifactId>eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>eureka-server</name>
-	<description>Euraka server project for r & d</description>
+	<description>Euraka server project for R and D</description>
 
 	<properties>
 		<java.version>13</java.version>
