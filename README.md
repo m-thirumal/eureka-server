@@ -1,1 +1,1 @@
-# eureka-server for learning and R&D
+# Eureka-server for learning and R&D
