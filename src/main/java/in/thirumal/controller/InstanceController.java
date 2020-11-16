@@ -6,7 +6,6 @@ package in.thirumal.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +30,7 @@ import in.thirumal.service.InstanceService;
 public class InstanceController {
 
 	@Autowired
-	InstanceService instanceService;
+	private InstanceService instanceService;
 	
 	@GetMapping()
 	public Applications listAllInstance() {
@@ -62,7 +61,7 @@ public class InstanceController {
 	    return registry.getInstancesById(instanceId);
 	}
 	
-	@DeleteMapping("/shutdown/{instanceId}")
+	@GetMapping("/shutdown/{instanceId}")
 	public ShutdownResource shutdownInstance(@PathVariable(value = "instanceId") String instanceId) {
 		return instanceService.shutdowInstance(instanceId);
 	}

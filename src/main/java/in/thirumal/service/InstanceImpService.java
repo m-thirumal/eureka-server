@@ -17,6 +17,7 @@ public class InstanceImpService implements InstanceService {
 	@Override
 	public ShutdownResource shutdowInstance(String instanceId) {
 		System.out.println("Instance Id: " + instanceId);
+		
 		return new ShutdownResource();
 	}
 
