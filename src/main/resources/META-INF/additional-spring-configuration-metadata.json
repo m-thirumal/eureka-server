@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "spring.boot.admin.client.instance.service-base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.boot.admin.client.instance.service-base-url'"
+  },
+  {
+    "name": "spring.boot.admin.client.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.boot.admin.client.url'"
+  },
+  {
+    "name": "spring.zipkin.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.zipkin.base-url'"
+  }
+]}
