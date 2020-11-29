@@ -9,11 +9,19 @@
 
 # To Create jar
 
+	mvn clean install
+	
 	mvn clean package -DskipTests=true
 
 # Run as jar from terminal
 
 	java -jar target/eureka-server-0.0.1-SNAPSHOT.jar
+	
+	java -jar -Dspring.profiles.active=eureka-primary target/eureka-server-0.0.1-SNAPSHOT.jar
+	
+	java -jar -Dspring.profiles.active=eureka-secondary target/eureka-server-0.0.1-SNAPSHOT.jar
+	
+	java -jar -Dspring.profiles.active=eureka-tertiary target/eureka-server-0.0.1-SNAPSHOT.jar
 
 	
 ### Swagger UI
