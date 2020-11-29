@@ -18,5 +18,5 @@
 	
 ### Swagger UI
 
-	http://localhost:8761/swagger-ui/index.html
+[http://localhost:8761/swagger-ui/index.html](http://localhost:8761/swagger-ui/index.html)
 	
