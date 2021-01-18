@@ -5,10 +5,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsUtils;
 
 /**
  * @author Thirumal
@@ -36,15 +38,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().ignoringAntMatchers("/eureka/**");
 	    super.configure(http);
       
-	}
-	/*	
-	@Override 
-	public void configure(WebSecurity web) { //
-	//	web.ignoring().antMatchers("/**"); 
+	}	
+
+	@Override
+    public void configure(WebSecurity web) throws Exception {
+        //web.ignoring().antMatchers("/**");
 		//web.debug(true);
-		web.ignoring().requestMatchers(CorsUtils::isPreFlightRequest)
-	  	.antMatchers("/webjars/**"); 
-	}	*/	 
+		web.ignoring()
+		.requestMatchers(CorsUtils::isPreFlightRequest)		
+		.antMatchers("/actuator/**");
+    }
 	
 	@Bean 
 	public PasswordEncoder passwordEncoder() { 

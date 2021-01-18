@@ -3,7 +3,7 @@
 
 spring:
   config: 
-    activate.on-profile: DEV-PRIMARY, DEV-SECONDARY, DEV-TERTIARY 
+    activate.on-profile: SBA,DEV-PRIMARY,DEV-SECONDARY,DEV-TERTIARY 
   zipkin:
      base-url: http://localhost:9411 
   boot:
@@ -19,7 +19,7 @@ spring:
 
 spring: 
   config: 
-    activate.on-profile: PRO-PRIMARY, PRO-SECONDARY, PRO-TERTIARY 
+    activate.on-profile: SBA,PRO-PRIMARY,PRO-SECONDARY,PRO-TERTIARY 
   zipkin:
      base-url: http://localhost:9411 
   boot:
