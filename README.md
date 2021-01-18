@@ -1,6 +1,6 @@
 # Eureka-server 
 
-* [Eureka Server](http://localhost:8761)
+* [Eureka Server](http://localhost:8761) high availability (HA) for Production
 
 
 ### Dependent project
