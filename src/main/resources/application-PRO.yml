@@ -23,7 +23,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true        
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8762/eureka/,http://thirumal:thirumal@localhost:8763/eureka/
+      defaultZone: http://thirumal:thirumal@172.19.250.8:8762/eureka/,http://thirumal:thirumal@172.19.250.8:8763/eureka/
       
       
 ---
@@ -45,7 +45,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true        
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@localhost:8763/eureka/
+      defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.8:8763/eureka/
 
 ---
 
@@ -66,5 +66,5 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true    
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@localhost:8762/eureka/      
+      defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.8:8762/eureka/      
 

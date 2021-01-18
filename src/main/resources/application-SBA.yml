@@ -1,0 +1,30 @@
+--- 
+## DEV Profile
+
+spring:
+  config: 
+    activate.on-profile: DEV-PRIMARY, DEV-SECONDARY, DEV-TERTIARY 
+  zipkin:
+     base-url: http://localhost:9411 
+  boot:
+    admin:
+      client:
+        instance:
+          service-base-url: http://localhost:7126
+          url: ${spring.boot.admin.client.instance.service-base-url}
+          
+---
+
+## PRO Profile
+
+spring: 
+  config: 
+    activate.on-profile: PRO-PRIMARY, PRO-SECONDARY, PRO-TERTIARY 
+  zipkin:
+     base-url: http://localhost:9411 
+  boot:
+    admin:
+      client:
+        instance:
+          service-base-url: http://localhost:7126
+          url: ${spring.boot.admin.client.instance.service-base-url}
