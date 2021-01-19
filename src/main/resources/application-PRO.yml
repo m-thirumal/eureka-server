@@ -7,7 +7,9 @@
 # java -jar -Dspring.profiles.active=DEV-TERTIARY eureka-server-0.0.1-SNAPSHOT.jar
 
 spring:   
-  profiles: DEV-PRIMARY
+#  profiles: DEV-PRIMARY
+  config: 
+    activate.on-profile: DEV-PRIMARY 
   application:
     name: eureka-server-clustered-1 
 server:
@@ -16,20 +18,23 @@ eureka:
   instance:
     hostname: eureka-primary
     leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2       
+    leaseExpirationDurationInSeconds: 2
+    preferIpAddress: true       
   server:
     peer-node-read-timeout-ms: 10000
   client:
     registerWithEureka: true
     fetchRegistry: true        
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@172.19.250.8:8762/eureka/,http://thirumal:thirumal@172.19.250.8:8763/eureka/
+      defaultZone: http://thirumal:thirumal@172.19.250.7:8762/eureka/,http://thirumal:thirumal@172.19.250.8:8763/eureka/
       
       
 ---
 
 spring: 
-  profiles: DEV-SECONDARY
+#  profiles: DEV-SECONDARY
+  config: 
+    activate.on-profile: DEV-SECONDARY 
   application:
     name: eureka-server-clustered-2  
 server:
@@ -39,6 +44,7 @@ eureka:
     hostname: eureka-secondary 
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2 
+    preferIpAddress: true 
   server:
     peer-node-read-timeout-ms: 10000      
   client:
@@ -50,7 +56,9 @@ eureka:
 ---
 
 spring: 
-  profiles: DEV-TERTIARY
+#  profiles: DEV-TERTIARY
+  config: 
+    activate.on-profile: DEV-TERTIARY 
   application:
     name: eureka-server-clustered-3    
 server:
@@ -60,11 +68,12 @@ eureka:
     hostname: eureka-tertiary
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2 
+    preferIpAddress: true 
   server: 
     peer-node-read-timeout-ms: 10000       
   client:
     registerWithEureka: true
     fetchRegistry: true    
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.8:8762/eureka/      
+      defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.7:8762/eureka/      
 
