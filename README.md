@@ -24,6 +24,9 @@
 	
 	java -jar -Dspring.profiles.active=DEV-TERTIARY target/eureka-server-0.0.1-SNAPSHOT.jar
 
+### Replica 
+
+* Make sure `eureka.instance.hostname: ` is same as `eureka.client.serviceUrl.defaultZone`. Check how it's configured in `PRO environment`
 	
 ### Swagger UI
 
