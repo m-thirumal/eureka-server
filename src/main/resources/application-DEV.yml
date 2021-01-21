@@ -16,7 +16,7 @@ server:
   port: 8761  
 eureka: 
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
     preferIpAddress: true       
@@ -26,7 +26,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true        
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8762/eureka/,http://thirumal:thirumal@localhost:8763/eureka/
+      defaultZone: http://thirumal:thirumal@127.0.0.1:8762/eureka/,http://thirumal:thirumal@127.0.0.1:8763/eureka/
       
       
 ---
@@ -41,7 +41,7 @@ server:
   port: 8762
 eureka:
   instance:
-    hostname: localhost 
+    hostname: 127.0.0.1 
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2 
     preferIpAddress: true 
@@ -51,7 +51,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true        
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@localhost:8763/eureka/
+      defaultZone: http://thirumal:thirumal@127.0.0.1:8761/eureka/,http://thirumal:thirumal@127.0.0.1:8763/eureka/
 
 ---
 
@@ -65,7 +65,7 @@ server:
   port: 8763
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2 
     preferIpAddress: true 
@@ -75,5 +75,5 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true    
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@localhost:8762/eureka/      
+      defaultZone: http://thirumal:thirumal@127.0.0.1:8761/eureka/,http://thirumal:thirumal@127.0.0.1:8762/eureka/      
 
