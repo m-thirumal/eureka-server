@@ -27,6 +27,7 @@
 ### Replica 
 
 * Make sure `eureka.instance.hostname: ` is same as `eureka.client.serviceUrl.defaultZone`. Check how it's configured in `PRO environment`
+* If you want some of cluster to be independent set `eureka.client.fetchRegistry` is `false`
 	
 ### Swagger UI
 
