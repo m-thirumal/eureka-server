@@ -36,4 +36,9 @@
 ### Credentials
 
 	thirumal:thirumal
+
+### Extras - PROMETHEUS(Run the following docker command in the `prometheus.yml`file directory.
+
+    docker run -d -p 9090:9090 -v prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+
 	
