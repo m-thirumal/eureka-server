@@ -9,6 +9,30 @@
 spring:   
 #  profiles: DEV-PRIMARY
   config: 
+    activate.on-profile: DEV 
+  application:
+    name: eureka-server-clustered-1 
+server:
+  port: 8761  
+eureka: 
+  instance:
+    hostname: 127.0.0.1
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    preferIpAddress: true       
+  server:
+    peer-node-read-timeout-ms: 10000
+  client:
+    registerWithEureka: false
+    fetchRegistry: false        
+#    serviceUrl:
+#      defaultZone: http://thirumal:thirumal@127.0.0.1:8762/eureka/,http://thirumal:thirumal@127.0.0.1:8763/eureka/
+      
+---
+
+spring:   
+#  profiles: DEV-PRIMARY
+  config: 
     activate.on-profile: DEV-PRIMARY 
   application:
     name: eureka-server-clustered-1 
