@@ -19,7 +19,7 @@ eureka:
     hostname: eureka-primary
   client:       
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@localhost:8763/eureka/
+      defaultZone: http://thirumal:thirumal@192.168.0.27:8763/eureka/
       
       
 ---
@@ -37,7 +37,7 @@ eureka:
     hostname: eureka-secondary      
   client:       
     serviceUrl:
-     defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@localhost:8763/eureka/
+     defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@192.168.0.27:8763/eureka/
 
 ---
 
