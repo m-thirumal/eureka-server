@@ -11,7 +11,6 @@ spring:
       client:
         instance:
           service-base-url: http://localhost:7126
-          url: ${spring.boot.admin.client.instance.service-base-url}
           
 --- 
 ## UDEV Profile
@@ -26,7 +25,6 @@ spring:
       client:
         instance:
           service-base-url: http://localhost:7126
-          url: ${spring.boot.admin.client.instance.service-base-url}
           
 ---
 
@@ -42,4 +40,3 @@ spring:
       client:
         instance:
           service-base-url: http://172.19.250.8:7126
-          url: ${spring.boot.admin.client.instance.service-base-url}

@@ -1,10 +1,52 @@
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2 
+    preferIpAddress: true 
+  server:
+    peer-node-read-timeout-ms: 10000      
+  client:
+    registerWithEureka: true
+    fetchRegistry: true        
+
 management:
   endpoint:
     metrics:
       enabled: true
     prometheus:
       enabled: true
+    shutdown: 
+      enabled: true
+    restart: 
+      enabled: true
   endpoints:
     web:
       exposure:
         include: prometheus
+        
+#Graceful shutdown
+server:
+  shutdown: graceful
+spring: 
+  lifecycle: 
+    timeout-per-shutdown-phase: 30s
+        
+logging:
+  file: 
+    name: logs/eureka-server.log 
+  level: 
+    com: 
+      netflix: 
+        eureka: error
+        discovery: error
+    ch: 
+      qos: 
+        logback: 
+          classic: 
+            Level: debug
+    web: DEBUG
+  logback: 
+    rollingpolicy: 
+      max-history: 10
+      max-file-size: 100MB
+      total-size-cap: 1GB

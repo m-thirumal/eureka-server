@@ -16,15 +16,8 @@ server:
   port: 8761  
 eureka: 
   instance:
-    hostname: 172.19.250.7
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
-    preferIpAddress: true       
-  server:
-    peer-node-read-timeout-ms: 10000
-  client:
-    registerWithEureka: true
-    fetchRegistry: true        
+    hostname: 172.19.250.7     
+  client:        
     serviceUrl:
       defaultZone: http://thirumal:thirumal@172.19.250.8:8762/eureka/,http://thirumal:thirumal@172.19.250.9:8763/eureka/
       
@@ -41,15 +34,8 @@ server:
   port: 8762
 eureka:
   instance:
-    hostname: 172.19.250.8 
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2 
-    preferIpAddress: true 
-  server:
-    peer-node-read-timeout-ms: 10000      
+    hostname: 172.19.250.8      
   client:
-    registerWithEureka: true
-    fetchRegistry: true        
     serviceUrl:
       defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.9:8763/eureka/
 
@@ -66,14 +52,7 @@ server:
 eureka:
   instance:
     hostname: 172.19.250.9
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2 
-    preferIpAddress: true 
-  server: 
-    peer-node-read-timeout-ms: 10000       
   client:
-    registerWithEureka: true
-    fetchRegistry: true    
     serviceUrl:
       defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.8:8762/eureka/      
 
