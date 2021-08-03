@@ -4,10 +4,16 @@ eureka:
     leaseExpirationDurationInSeconds: 2 
     preferIpAddress: true 
   server:
-    peer-node-read-timeout-ms: 10000      
+    peer-node-read-timeout-ms: 10000
+    enableSelfPreservation: false  
+    waitTimeInMsWhenSyncEmpty: 0 
+    peerNodeTotalConnections: 100 
+    peerNodeTotalConnectionsPerHost: 500  
   client:
     registerWithEureka: true
-    fetchRegistry: true        
+    fetchRegistry: true 
+    healthcheck: 
+      enabled: true       
 
 management:
   endpoint:
