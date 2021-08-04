@@ -28,7 +28,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: prometheus
+        include: '*'
         
 #Graceful shutdown
 server:
