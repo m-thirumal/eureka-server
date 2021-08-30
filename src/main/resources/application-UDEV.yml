@@ -54,5 +54,5 @@ eureka:
     hostname: eureka-tertiary      
   client:    
     serviceUrl:
-      defaultZone: http://thirumal:thirumal@192.168.0.7:8761/eureka/      
+      defaultZone: http://thirumal:thirumal@192.168.0.12:8761/eureka/      
 
