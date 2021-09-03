@@ -3,19 +3,19 @@
 * [Eureka Server](http://localhost:8761) high availability (HA) for Production
 
 
-<img src="HA-eureka.png" alt="HA-eureka.png" width="200"/>
+<img src="HA-eureka.png" alt="HA-eureka.png" width="400" height="400"/>
 
 ### Dependent project
 
 * [Spring boot admin server](https://github.com/M-Thirumal/spring-boot-admin-server)
 
-#$ To Create jar
+## To Create jar
 
 	mvn clean install
 	
 	mvn clean package -DskipTests=true
 
-#$ Run as jar from terminal
+## Run as jar from terminal
 
 	java -jar target/eureka-server-0.0.1-SNAPSHOT.jar
 	
