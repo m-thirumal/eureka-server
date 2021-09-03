@@ -25,7 +25,7 @@
 	
 	java -jar -Dspring.profiles.active=DEV-TERTIARY target/eureka-server-0.0.1-SNAPSHOT.jar
 	
-### Start up at OS boot
+### Start EUREKA at OS boot automatically
 
 Add the below line in `corn -e`
 	
