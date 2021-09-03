@@ -3,7 +3,7 @@
 * [Eureka Server](http://localhost:8761) high availability (HA) for Production
 
 
-<img src="HA-eureka.png" alt="HA-eureka.png" width="900" height="400"/>
+<img src="HA-eureka.png" alt="HA-eureka.png" width="700" height="400"/>
 
 ### Dependent project
 
