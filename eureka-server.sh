@@ -14,4 +14,5 @@ echo 'starting application'
 appName="eureka-server-0.0.1-SNAPSHOT.jar"
 echo 'App Name:' $appName
 #pkill -f $appName 
+echo 'env : ' $1
 nohup java -jar -Dspring.profiles.active=$0 target/$appName >& /dev/null &
