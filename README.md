@@ -2,19 +2,20 @@
 
 * [Eureka Server](http://localhost:8761) high availability (HA) for Production
 
-![Eureka Server](HA-eureka.png)
+
+<img src="HA-eureka.png" alt="HA-eureka.png" width="200"/>
 
 ### Dependent project
 
 * [Spring boot admin server](https://github.com/M-Thirumal/spring-boot-admin-server)
 
-# To Create jar
+#$ To Create jar
 
 	mvn clean install
 	
 	mvn clean package -DskipTests=true
 
-# Run as jar from terminal
+#$ Run as jar from terminal
 
 	java -jar target/eureka-server-0.0.1-SNAPSHOT.jar
 	
@@ -33,6 +34,8 @@ Add the below line in `corn -e`
 Example:
 	
 	@reboot /home/thirumal/git/eureka-server/eureka-server.sh DEV-PRIMARY
+	
+Note: Add `cd /path-to-repo` to the shell script (1'st line)
 	
 ### Replica 
 
