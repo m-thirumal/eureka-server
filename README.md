@@ -23,7 +23,17 @@
 	java -jar -Dspring.profiles.active=DEV-SECONDARY target/eureka-server-0.0.1-SNAPSHOT.jar
 	
 	java -jar -Dspring.profiles.active=DEV-TERTIARY target/eureka-server-0.0.1-SNAPSHOT.jar
+	
+### Start up at OS boot
 
+Add the below line in `corn -e`
+	
+	@reboot /{path-to-eureka-server-script}/eureka-server.sh {ENV}
+
+Example:
+	
+	@reboot /home/thirumal/git/eureka-server/eureka-server.sh DEV-PRIMARY
+	
 ### Replica 
 
 * Make sure `eureka.instance.hostname: ` is same as `eureka.client.serviceUrl.defaultZone`. Check how it's configured in `PRO environment`
