@@ -25,6 +25,18 @@
 	
 	java -jar -Dspring.profiles.active=DEV-TERTIARY target/eureka-server-0.0.1-SNAPSHOT.jar
 	
+## Docker
+
+Create docker layered image using the following command
+
+	mvn package
+	mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+	docker build -t eureka-server .
+
+Run the image (with desired/profile port)
+
+	docker run --restart always -d -p 8761:8761 spring-boot-admin-server
+	
 ### Start EUREKA at OS boot automatically
 
 Add the below line in `corn -e`
