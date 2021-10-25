@@ -33,9 +33,11 @@ Create docker layered image using the following command
 	mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 	docker build -t eureka-server .
 
-Run the image (with desired/profile port)
+Run the image (with desired)
 
-	docker run --restart always -d -p 8761:8761 spring-boot-admin-server
+	docker run --restart always -d -p 8761:8761 eureka-server
+	docker run --restart always -d -p 8762:8762 eureka-server
+	docker run --restart always -d -p 8763:8763 eureka-server
 	
 ### Start EUREKA at OS boot automatically
 
