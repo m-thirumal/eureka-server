@@ -35,13 +35,13 @@ Create docker layered image using the following command
 
 Run the image (with desired)
 
-	docker run --restart always -d -p 8761:8761 eureka-server
-	docker run --restart always -d -p 8762:8762 eureka-server
-	docker run --restart always -d -p 8763:8763 eureka-server
+	docker run --name primary --restart always -d -p 8761:8761 -e "SPRING_PROFILES_ACTIVE=DEV-PRIMARY" eureka-server
+	docker run --name secondary --restart always -d -p 8762:8762 -e "SPRING_PROFILES_ACTIVE=DEV-SECONDARY" eureka-server
+	docker run --name tertiary --restart always -d -p 8763:8763 -e "SPRING_PROFILES_ACTIVE=DEV-TERTIARY" eureka-server
 	
-### Start EUREKA at OS boot automatically
+### Start EUREKA as JAR at OS boot automatically
 
-Add the below line in `corn -e`
+Add the below line in `corntab -e`
 	
 	@reboot /{path-to-eureka-server-script}/eureka-server.sh {ENV}
 
