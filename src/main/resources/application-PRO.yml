@@ -35,6 +35,7 @@ server:
   port: 8762
 eureka:
   instance:
+    ipAddress: "${HOST}"
     hostname: 172.19.250.8      
   client:
     serviceUrl:
@@ -52,6 +53,7 @@ server:
   port: 8763
 eureka:
   instance:
+    ipAddress: "${HOST}"
     hostname: 172.19.250.9
   client:
     serviceUrl:
