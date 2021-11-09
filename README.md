@@ -30,7 +30,9 @@
 Create docker layered image using the following command
 
 	mvn package
+	chmod -R 777 target/
 	mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+	chmod -R 777 target/
 	docker build -t eureka-server .
 
 Run the image (with desired)
