@@ -16,6 +16,7 @@ server:
   port: 8761  
 eureka: 
   instance:
+    ipAddress: "${HOST}"
     hostname: eureka-primary
   client:       
     serviceUrl:
@@ -34,7 +35,8 @@ server:
   port: 8762
 eureka:
   instance:
-    hostname: eureka-secondary      
+    hostname: eureka-secondary
+    ipAddress: "${HOST}"      
   client:       
     serviceUrl:
      defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@192.168.0.27:8763/eureka/
@@ -51,6 +53,7 @@ server:
   port: 8763
 eureka:
   instance:
+    ipAddress: "${HOST}"
     hostname: eureka-tertiary      
   client:    
     serviceUrl:
