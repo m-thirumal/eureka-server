@@ -17,7 +17,7 @@ server:
 eureka: 
   instance:
     hostname: 172.19.250.7
-    ipAddress: 172.19.250.7   
+    ipAddress: ${eureka.instance.hostname}   
   client:        
     serviceUrl:
       defaultZone: http://thirumal:thirumal@172.19.250.8:8762/eureka/,http://thirumal:thirumal@172.19.250.9:8763/eureka/
@@ -36,7 +36,7 @@ server:
 eureka:
   instance:
     hostname: 172.19.250.8
-    ipAddress: 172.19.250.8     
+    ipAddress: ${eureka.instance.hostname}     
   client:
     serviceUrl:
       defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.9:8763/eureka/
@@ -54,7 +54,7 @@ server:
 eureka:
   instance:
     hostname: 172.19.250.9
-    ipAddress: 172.19.250.9 
+    ipAddress: ${eureka.instance.hostname} 
   client:
     serviceUrl:
       defaultZone: http://thirumal:thirumal@172.19.250.7:8761/eureka/,http://thirumal:thirumal@172.19.250.8:8762/eureka/      
