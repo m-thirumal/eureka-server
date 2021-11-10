@@ -16,7 +16,7 @@ server:
   port: 8761  
 eureka: 
   instance:
-    ipAddress: "${HOST}"
+    ipAddress: 192.168.0.12
     hostname: eureka-primary
   client:       
     serviceUrl:
@@ -35,7 +35,7 @@ server:
   port: 8762
 eureka:
   instance:
-    ipAddress: "${HOST}"
+    ipAddress: 192.168.0.12
     hostname: eureka-secondary      
   client:       
     serviceUrl:
@@ -53,7 +53,7 @@ server:
   port: 8763
 eureka:
   instance:
-    ipAddress: "${HOST}"
+    ipAddress: 192.168.0.27
     hostname: eureka-tertiary      
   client:    
     serviceUrl:

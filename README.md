@@ -37,6 +37,11 @@ Create docker layered image using the following command
 
 Run the image (with desired)
 
+	docker run --name primary --restart always -d -p 8761:8761 -e "SPRING_PROFILES_ACTIVE=DEV-PRIMARY" eureka-server
+	docker run --name secondary --restart always -d -p 8762:8762 -e "SPRING_PROFILES_ACTIVE=DEV-SECONDARY" eureka-server
+	docker run --name tertiary --restart always -d -p 8763:8763 -e "SPRING_PROFILES_ACTIVE=DEV-TERTIARY" eureka-server
+	
+	# If we use ${"HOST"} for ip-address
 	docker run --name primary --restart always -d -p 8761:8761 -e "SPRING_PROFILES_ACTIVE=DEV-PRIMARY" -e "HOST=172.19.250.7" eureka-server
 	docker run --name secondary --restart always -d -p 8762:8762 -e "SPRING_PROFILES_ACTIVE=DEV-SECONDARY" -e "HOST=172.19.250.8" eureka-server
 	docker run --name tertiary --restart always -d -p 8763:8763 -e "SPRING_PROFILES_ACTIVE=DEV-TERTIARY" -e "HOST=172.19.250.9" eureka-server
