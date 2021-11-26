@@ -48,7 +48,7 @@ Run the image (with desired)
 	
 ### Start EUREKA as JAR at OS boot automatically
 
-Add the below line in `corntab -e`
+Add the below line in `crontab -e`
 	
 	@reboot /{path-to-eureka-server-script}/eureka-server.sh {ENV}
 
