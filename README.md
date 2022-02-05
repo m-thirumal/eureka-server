@@ -66,6 +66,7 @@ Note: Add `cd /path-to-repo` to the shell script (1'st line)
 ### Swagger UI
 
 [http://localhost:8761/swagger-ui/index.html](http://localhost:8761/swagger-ui/index.html)
+[http://localhost:8761/api-docs](http://localhost:8761/api-docs)
 
 ### Credentials
 

@@ -58,3 +58,8 @@ logging:
       max-history: 10
       max-file-size: 100MB
       total-size-cap: 1GB
+
+# Spring API docs
+springdoc:
+  api-docs:
+    path: /api-docs
