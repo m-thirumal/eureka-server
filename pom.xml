@@ -5,11 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-<<<<<<< HEAD
 		<version>2.6.7</version>
-=======
-		<version>2.6.6</version>
->>>>>>> 0d47b1112b497aed3dc8f153ddbae9d51403224c
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>in.thirumal</groupId>
