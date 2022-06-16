@@ -41,6 +41,12 @@ Run the image (with desired)
 	docker run --name secondary --restart always -d -p 8762:8762 -e "SPRING_PROFILES_ACTIVE=DEV-SECONDARY" eureka-server
 	docker run --name tertiary --restart always -d -p 8763:8763 -e "SPRING_PROFILES_ACTIVE=DEV-TERTIARY" eureka-server
 	
+	# With local log
+	
+	docker run --name primary --restart always --log-driver local --log-opt max-size=10m -d -p 8761:8761 -e "SPRING_PROFILES_ACTIVE=DEV-PRIMARY" eureka-server
+	docker run --name secondary --restart always --log-driver local --log-opt max-size=10m -d -p 8762:8762 -e "SPRING_PROFILES_ACTIVE=DEV-SECONDARY" eureka-server
+	docker run --name tertiary --restart always --log-driver local --log-opt max-size=10m -d -p 8763:8763 -e "SPRING_PROFILES_ACTIVE=DEV-TERTIARY" eureka-server
+	
 	# Without log
 	docker run --name primary --restart always --log-driver none -d -p 8761:8761 -e "SPRING_PROFILES_ACTIVE=DEV-PRIMARY" eureka-server
 	docker run --name secondary --restart always --log-driver none -d -p 8762:8762 -e "SPRING_PROFILES_ACTIVE=DEV-SECONDARY" eureka-server
