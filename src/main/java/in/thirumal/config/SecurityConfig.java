@@ -29,13 +29,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 //@Order(1)
 public class SecurityConfig {
-//	
-//	@Autowired
-//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication().passwordEncoder(passwordEncoder())
-//        .withUser("thirumal").password("$2a$11$WWZlUCd4XndWGpriAx7Pv.HpZ042awTnlAKr9VDiN9xEdPNS1Xy1q").roles("ADMIN").roles("ACTUATOR");
-//	}
-//	
+
 	@Bean
     protected InMemoryUserDetailsManager configAuthentication() {
 
