@@ -12,6 +12,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsUtils;
@@ -40,7 +42,8 @@ public class SecurityConfig {
        List<UserDetails> users = new ArrayList<>();
        List<GrantedAuthority> adminAuthority = new ArrayList<>();
        adminAuthority.add(new SimpleGrantedAuthority("ADMIN"));
-       UserDetails admin= new User("thirumal", "{noop}thirumal", adminAuthority);
+       adminAuthority.add(new SimpleGrantedAuthority("ACTUATOR"));
+       UserDetails admin= new User("thirumal", "$2a$11$WWZlUCd4XndWGpriAx7Pv.HpZ042awTnlAKr9VDiN9xEdPNS1Xy1q", adminAuthority);
        users.add(admin);
 
        List<GrantedAuthority> managerAuthority = new ArrayList<>();
@@ -75,5 +78,10 @@ public class SecurityConfig {
         return web -> web.ignoring().requestMatchers(CorsUtils::isPreFlightRequest)		
         		.antMatchers("/actuator/**", "/eureka/**");
     }
+	
+	@Bean
+	public PasswordEncoder encoder() {
+	    return new BCryptPasswordEncoder();
+	}
 	
 }
