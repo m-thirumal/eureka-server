@@ -1,0 +1,43 @@
+---
+# The default profile (Available in application.properties) is used when running a single instance completely standalone:
+# primary, secondary, and tertiary are running 3 intercommunicating instances.  
+# Run by opening 3 separate command prompts:
+# java -jar -Dspring.profiles.active=DEV-PRIMARY eureka-server-0.0.1-SNAPSHOT.jar
+# java -jar -Dspring.profiles.active=DEV-SECONDARY eureka-server-0.0.1-SNAPSHOT.jar
+# java -jar -Dspring.profiles.active=DEV-TERTIARY eureka-server-0.0.1-SNAPSHOT.jar
+
+
+spring:   
+#  profiles: ADEV-PRIMARY
+  config: 
+    activate.on-profile: ADEV-PRIMARY 
+  application:
+    name: eureka-server-clustered-1 
+server:
+  port: 8761  
+eureka: 
+  instance:
+    ipAddress: 127.0.0.1
+    hostname: ${eureka.instance.ip-address}
+  client:        
+    serviceUrl:
+      defaultZone: http://thirumal:thirumal@10.0.2.117:8762/eureka/
+      
+      
+---
+
+spring: 
+#  profiles: ADEV-SECONDARY
+  config: 
+    activate.on-profile: ADEV-SECONDARY 
+  application:
+    name: eureka-server-clustered-2  
+server:
+  port: 8762
+eureka:
+  instance:
+    ipAddress: 127.0.0.1
+    hostname: ${eureka.instance.ip-address}      
+  client:       
+    serviceUrl:
+      defaultZone: http://thirumal:thirumal@10.0.2.105:8761/eureka/
