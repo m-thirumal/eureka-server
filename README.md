@@ -90,3 +90,14 @@ Note: Add `cd /path-to-repo` to the shell script (1'st line)
 
     docker run -d -p 9090:9090 -v /Users/thirumal/git/eureka-server/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 	
+
+## Troubleshoot
+
+1. Client registering with `Public IP address` instead of private.
+	* Solution: Need to hard code the IP address. Example
+		
+		eureka:
+		  instance:
+		    prefer-ip-address : true
+		    ip-address : xx.xx.xx.xx
+	
