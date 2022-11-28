@@ -52,7 +52,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable() 
         		.anonymous().disable()
-        		 .formLogin().permitAll().and().authorizeRequests().antMatchers("/", "/eureka/**").permitAll()
+        		 .formLogin().permitAll()//.and()//.authorizeHttpRequests().requestMatchers("/", "/eureka/**").permitAll()
+        		 .and().authorizeHttpRequests()
                          .anyRequest().authenticated();
         return http.build();
     }
@@ -69,8 +70,7 @@ public class SecurityConfig {
 	
 	@Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring().requestMatchers(CorsUtils::isPreFlightRequest)		
-        		.antMatchers("/actuator/**", "/eureka/**");
+        return web -> web.ignoring().requestMatchers(CorsUtils::isPreFlightRequest).requestMatchers("/actuator/**", "/eureka/**");
     }
 	
 	@Bean
