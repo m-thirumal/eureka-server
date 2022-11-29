@@ -9,10 +9,12 @@
 echo "Git Pull"
 git pull
 echo "Git pull successful"
+echo 'Building application'
 mvn clean package -DskipTests=true
-echo 'starting application'
 appName="eureka-server-0.0.1-SNAPSHOT.jar"
 echo 'App Name:' $appName
-#pkill -f $appName 
+# Stopping the running app
+pkill -f $appName 
 echo 'env : ' $1
+echo 'starting application'
 nohup java -jar -Dspring.profiles.active=$1 target/$appName >& /dev/null &
