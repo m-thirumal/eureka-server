@@ -17,4 +17,4 @@ echo 'App Name:' $appName
 pkill -f $appName 
 echo 'env : ' $1
 echo 'starting application'
-nohup java -jar -Dspring.profiles.active=$1 target/$appName >& /dev/null &
+nohup java -jar target/$appName >& /dev/null &
