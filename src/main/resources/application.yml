@@ -1,6 +1,6 @@
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 1
+    leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 2 
     preferIpAddress: true 
   server:
@@ -10,8 +10,9 @@ eureka:
     peerNodeTotalConnections: 100 
     peerNodeTotalConnectionsPerHost: 500  
   client:
-    registerWithEureka: true
-    fetchRegistry: true 
+# Default value is true
+#    registerWithEureka: true
+#    fetchRegistry: true 
     healthcheck: 
       enabled: true       
 
