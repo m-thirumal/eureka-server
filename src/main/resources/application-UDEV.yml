@@ -37,7 +37,9 @@ eureka:
   instance:
     ipAddress: 192.168.0.17
     hostname: eureka-secondary      
-  client:       
+  client:    
+    registerWithEureka: true
+    fetchRegistry: false    
     serviceUrl:
      defaultZone: http://thirumal:thirumal@localhost:8761/eureka/,http://thirumal:thirumal@192.168.0.27:8763/eureka/
 
