@@ -9,7 +9,7 @@
 spring:   
 #  profiles: DEV-PRIMARY
   config: 
-    activate.on-profile: PRO-PRIMARY
+    activate.on-profile: EPRO-PRIMARY
   application:
     name: eureka-server-clustered-1 
 server:
@@ -28,7 +28,7 @@ eureka:
 spring: 
 #  profiles: DEV-SECONDARY
   config: 
-    activate.on-profile: PRO-SECONDARY
+    activate.on-profile: EPRO-SECONDARY
   application:
     name: eureka-server-clustered-2  
 server:
@@ -46,7 +46,7 @@ eureka:
 spring: 
 #  profiles: DEV-TERTIARY
   config: 
-    activate.on-profile: PRO-TERTIARY
+    activate.on-profile: EPRO-TERTIARY
   application:
     name: eureka-server-clustered-3    
 server:
