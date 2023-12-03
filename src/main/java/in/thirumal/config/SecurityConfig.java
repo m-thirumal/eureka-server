@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.annotation.web.configurers.AnonymousConfigurer;
+import org.springframework.security.config.annotation.web.configurers.CorsConfigurer;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -30,8 +34,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //@Order(1)
 public class SecurityConfig {
 
-	@Bean
-    protected InMemoryUserDetailsManager configAuthentication() {
+    @Bean
+    InMemoryUserDetailsManager configAuthentication() {
 
        List<UserDetails> users = new ArrayList<>();
        List<GrantedAuthority> adminAuthority = new ArrayList<>();
@@ -47,19 +51,29 @@ public class SecurityConfig {
 
        return new InMemoryUserDetailsManager(users);
     }
-	
-	@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable() 
-        		.anonymous().disable()
-        		 .formLogin().permitAll()//.and()//.authorizeHttpRequests().requestMatchers("/", "/eureka/**").permitAll()
-        		 .and().authorizeHttpRequests()
-                         .anyRequest().authenticated();
+
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    	http.cors(CorsConfigurer::disable);
+    	http.anonymous(AnonymousConfigurer::disable);
+    	http.csrf(CsrfConfigurer::disable);
+    	http
+		.authorizeHttpRequests(authorize -> authorize
+			//	.requestMatchers(HttpMethod.POST, "/user/**").permitAll()
+			.anyRequest().authenticated())
+		// Form login handles the redirect to the login page from the
+		// authorization server filter chain
+		.formLogin(Customizer.withDefaults());
+//        http.cors().and().csrf().disable() 
+//        		.anonymous().disable()
+//        		 .formLogin().permitAll()//.and()//.authorizeHttpRequests().requestMatchers("/", "/eureka/**").permitAll()
+//        		 .and().authorizeHttpRequests()
+//                         .anyRequest().authenticated();
         return http.build();
     }
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
+    @Bean
+    WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
@@ -67,14 +81,14 @@ public class SecurityConfig {
 			}
 		};
 	}
-	
-	@Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
+
+    @Bean
+    WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring().requestMatchers(CorsUtils::isPreFlightRequest).requestMatchers("/actuator/**", "/eureka/**");
     }
-	
-	@Bean
-	public PasswordEncoder encoder() {
+
+    @Bean
+    PasswordEncoder encoder() {
 	    return new BCryptPasswordEncoder();
 	}
 	
