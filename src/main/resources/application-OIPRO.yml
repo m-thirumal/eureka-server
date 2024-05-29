@@ -18,9 +18,9 @@ eureka:
   instance:
     hostname: 172.31.1.17
     ipAddress: ${eureka.instance.hostname}   
-  client:        
-    serviceUrl:
-      defaultZone: http://thirumal:thirumal@172.31.1.17:8762/eureka/,http://thirumal:thirumal@172.31.1.17:8763/eureka/
+#  client:        
+#    serviceUrl:
+#      defaultZone: http://thirumal:thirumal@172.31.1.17:8762/eureka/,http://thirumal:thirumal@172.31.1.17:8763/eureka/
       
       
 ---
