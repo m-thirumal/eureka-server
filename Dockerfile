@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine
+FROM openjdk:21-jdk
 LABEL author="திருமால்"
 LABEL maintainer="Thirumal"
 RUN addgroup -S thirumal && adduser -S thirumal -G thirumal
