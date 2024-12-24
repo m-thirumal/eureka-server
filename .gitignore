@@ -32,3 +32,4 @@ build/
 ###eureka server ###
 /logs/
 
+/.DS_Store

@@ -19,13 +19,13 @@ eureka:
 management:
   endpoint:
     metrics:
-      enabled: true
+      access: read-only
     prometheus:
-      enabled: true
+      access: read-only
     shutdown: 
-      enabled: true
+      access: read-only
     restart: 
-      enabled: true
+      access: read-only
   endpoints:
     web:
       exposure:
