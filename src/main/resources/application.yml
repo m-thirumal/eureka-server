@@ -30,6 +30,9 @@ management:
     web:
       exposure:
         include: '*'
+  metrics:
+    tags:
+      application: eureka-server
         
 #Graceful shutdown
 server:
