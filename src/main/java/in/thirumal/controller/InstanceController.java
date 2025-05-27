@@ -5,7 +5,6 @@ package in.thirumal.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +28,13 @@ import in.thirumal.service.InstanceService;
 @RequestMapping("/eureka-instance")
 public class InstanceController {
 
-	@Autowired
 	private InstanceService instanceService;
 	
+	public InstanceController(InstanceService instanceService) {
+		super();
+		this.instanceService = instanceService;
+	}
+
 	@GetMapping()
 	public Applications listAllInstance() {
 		PeerAwareInstanceRegistry registry = EurekaServerContextHolder.getInstance().getServerContext().getRegistry();
@@ -44,7 +47,7 @@ public class InstanceController {
 	}
 	
 	@GetMapping("/{app}")
-	public Application listAppInstance(@PathVariable(value = "app") String app) throws Exception {
+	public Application listAppInstance(@PathVariable String app) throws Exception {
 		PeerAwareInstanceRegistry registry = EurekaServerContextHolder.getInstance().getServerContext().getRegistry();
 	    Application application = registry.getApplications().getRegisteredApplications(app);
 	    if (application == null) {
@@ -56,13 +59,13 @@ public class InstanceController {
 	}
 	
 	@GetMapping("/instance/{instanceId}")
-	public List<InstanceInfo> getInstance(@PathVariable(value = "instanceId") String instanceId) throws Exception {
+	public List<InstanceInfo> getInstance(@PathVariable String instanceId) throws Exception {
 		PeerAwareInstanceRegistry registry = EurekaServerContextHolder.getInstance().getServerContext().getRegistry();
 	    return registry.getInstancesById(instanceId);
 	}
 	
 	@GetMapping("/shutdown/{instanceId}")
-	public ShutdownResource shutdownInstance(@PathVariable(value = "instanceId") String instanceId) {
+	public ShutdownResource shutdownInstance(@PathVariable String instanceId) {
 		return instanceService.shutdowInstance(instanceId);
 	}
 	
